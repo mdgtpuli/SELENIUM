@@ -19,7 +19,7 @@ public class LogarDia {
         String URL = "https://redmine-sf.fujiemergya.es/my/page";
         String petition = "163994";
         String hours = "8.5";
-        String activity = "";
+        String fechaSt = "13/04/2020";
 
         System.out.println("Test started: Access Mi página");
 
@@ -63,6 +63,9 @@ public class LogarDia {
         WebElement petitionNumber = driver.findElement(By.id("time_entry_issue_id"));
         petitionNumber.sendKeys(petition);
 
+        //fecha
+        WebElement fechaInbox = driver.findElement(By.id("time_entry_spent_on"));
+        fechaInbox.sendKeys(fechaSt);
 
         //Introduce number of hours
         WebElement hoursInbox = driver.findElement(By.id("time_entry_hours"));
