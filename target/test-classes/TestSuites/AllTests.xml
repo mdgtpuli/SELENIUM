@@ -1,0 +1,59 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AllTests" verbose="1">
+
+    <test name="LogarLunes">
+        <parameter name="usernameSt" value="mdolores.garcia"/>
+        <parameter name="passwordSt" value="26086420"/>
+        <parameter name="petition" value="163994"/>
+        <parameter name="hours" value="8.5"/>
+        <parameter name="fechaSt" value="0"/>
+        <classes>
+            <class name="es.fujiemergya.redmine.LogarDia"/>
+        </classes>
+    </test>
+
+    <test name="LogarMartes">
+        <parameter name="usernameSt" value="mdolores.garcia"/>
+        <parameter name="passwordSt" value="26086420"/>
+        <parameter name="petition" value="163994"/>
+        <parameter name="hours" value="8.5"/>
+        <parameter name="fechaSt" value="1"/>
+        <classes>
+            <class name="es.fujiemergya.redmine.LogarDia"/>
+        </classes>
+    </test>
+
+    <test name="LogarMiercoles">
+        <parameter name="usernameSt" value="mdolores.garcia"/>
+        <parameter name="passwordSt" value="26086420"/>
+        <parameter name="petition" value="163994"/>
+        <parameter name="hours" value="8.5"/>
+        <parameter name="fechaSt" value="2"/>
+        <classes>
+            <class name="es.fujiemergya.redmine.LogarDia"/>
+        </classes>
+    </test>
+
+    <test name="LogarJueves">
+        <parameter name="usernameSt" value="mdolores.garcia"/>
+        <parameter name="passwordSt" value="26086420"/>
+        <parameter name="petition" value="163994"/>
+        <parameter name="hours" value="8.5"/>
+        <parameter name="fechaSt" value="3"/>
+        <classes>
+            <class name="es.fujiemergya.redmine.LogarDia"/>
+        </classes>
+    </test>
+
+    <test name="LogarViernes">
+        <parameter name="usernameSt" value="mdolores.garcia"/>
+        <parameter name="passwordSt" value="26086420"/>
+        <parameter name="petition" value="163994"/>
+        <parameter name="hours" value="8.5"/>
+        <parameter name="fechaSt" value="4"/>
+        <classes>
+            <class name="es.fujiemergya.redmine.LogarDia"/>
+        </classes>
+    </test>
+</suite>

@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTest {
 
+    @Parameters({"usernameSt", "passwordSt"})
     @Test
-    public void loginTest() {
-        String usernameSt = "mdolores.garcia";
-        String passwordSt = "26086420";
+    public void loginTest(String usernameSt, String passwordSt) {
         String URL = "https://redmine-sf.fujiemergya.es/login?back_url=http%3A%2F%2Fredmine-sf.fujiemergya.es%2F";
 
         System.out.println("Test started: Login Test");
