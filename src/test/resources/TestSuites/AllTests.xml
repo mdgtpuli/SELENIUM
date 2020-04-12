@@ -3,6 +3,7 @@
 <suite name="AllTests" verbose="1">
 
     <test name="LogarLunes">
+        <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
         <parameter name="petition" value="163994"/>
@@ -14,6 +15,7 @@
     </test>
 
     <test name="LogarMartes">
+        <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
         <parameter name="petition" value="163994"/>
@@ -25,6 +27,7 @@
     </test>
 
     <test name="LogarMiercoles">
+        <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
         <parameter name="petition" value="163994"/>
@@ -36,6 +39,7 @@
     </test>
 
     <test name="LogarJueves">
+        <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
         <parameter name="petition" value="163994"/>
@@ -47,10 +51,11 @@
     </test>
 
     <test name="LogarViernes">
+        <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
         <parameter name="petition" value="163994"/>
-        <parameter name="hours" value="8.5"/>
+        <parameter name="hours" value="6.5"/>
         <parameter name="fechaSt" value="4"/>
         <classes>
             <class name="es.fujiemergya.redmine.LogarDia"/>

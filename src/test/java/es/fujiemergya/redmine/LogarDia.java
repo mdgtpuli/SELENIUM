@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,21 +15,41 @@ import java.util.Date;
 
 public class LogarDia {
 
+    private WebDriver driver;
+
+    @Parameters({"browser"})
+    @BeforeMethod(alwaysRun = true)
+    private void setUpChrome(@Optional String browser) {
+        //Create driver
+        switch (browser.toLowerCase()) {
+            case "chrome":
+                System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
+                driver = new FirefoxDriver();
+                break;
+            default:
+                System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+                driver = new ChromeDriver();
+        }
+
+        //Maximise driver
+        driver.manage().window().maximize();
+    }
+
     @Parameters({"usernameSt", "passwordSt", "petition", "hours", "fechaSt"})
     @Test
-    public void logarDia(String usernameSt, String passwordSt, String petition, String hours, int fechaSt){
+    public void logarDia(String usernameSt, String passwordSt, String petition, String hours, int fechaSt) {
         String URL = "https://redmine-sf.fujiemergya.es/my/page";
 
-        System.out.println("Test started: Access Mi página");
-
-        //Create driver
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        System.out.println("Test started: Logar horas del día" + fechaSt);
 
         //Open URL
         driver.get(URL);
         driver.navigate();
-        driver.manage().window().maximize();
+
 
         //enter username
         WebElement username = driver.findElement(By.id("username"));
@@ -86,10 +106,10 @@ public class LogarDia {
 //        Assert.assertEquals(actualSuccessMessage,expectedSuccessMessage, "Successful action message was not found. " );
 //
 //
-//        driver.quit();
+
     }
 
-    private String calculateDate(int dia){
+    private String calculateDate(int dia) {
         //Format today's date in the required format
         String pattern = "EEE, dd/MM/yyyy";
         DateFormat df = new SimpleDateFormat(pattern);
@@ -104,6 +124,8 @@ public class LogarDia {
 
         String actualDay = "";
 
+        //Taking into account the weekday and the variable dia sent, we add or extract days to the variable
+        // day in order to print the required date
         for (int i = 0; i <= 6; i++) {
             if (weekDay.equalsIgnoreCase("lun")) {
                 actualDay = Integer.toString(dayInt + dia);
@@ -225,8 +247,14 @@ public class LogarDia {
             }
 
         }
+        //Return the resulting date to be introduced in the form
         return actualDay + monthAndYear;
 
+    }
+
+    @AfterMethod(alwaysRun = true)
+    private void closeDriver() {
+        //        driver.quit();
     }
 }
 

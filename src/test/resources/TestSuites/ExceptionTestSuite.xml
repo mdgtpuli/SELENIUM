@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ExceptionTestSuite" verbose="1">
+
+    <test name="ExceptionTest">
+        <classes>
+            <class name="es.fujiemergya.redmine.ExceptionTest"/>
+        </classes>
+    </test>
+
+</suite>
