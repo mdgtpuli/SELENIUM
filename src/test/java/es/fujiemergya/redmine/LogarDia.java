@@ -39,9 +39,9 @@ public class LogarDia {
         driver.manage().window().maximize();
     }
 
-    @Parameters({"usernameSt", "passwordSt", "petition", "hours", "fechaSt"})
+    @Parameters({"usernameSt", "passwordSt","timeEntryProjecId", "petition", "hours", "fechaSt"})
     @Test
-    public void logarDia(String usernameSt, String passwordSt, String petition, String hours, int fechaSt) {
+    public void logarDia(String usernameSt, String passwordSt, String timeEntryProjecId, String petition, String hours, int fechaSt) {
         String URL = "https://redmine-sf.fujiemergya.es/my/page";
 
         System.out.println("Test started: Logar horas del día" + fechaSt);
@@ -75,8 +75,8 @@ public class LogarDia {
         tiempoDedicado.click();
 
         //Select proyect
-        WebElement proyectArray = driver.findElement(By.id("time_entry_project_id"));
-        proyectArray.findElement(By.xpath("//option[@value='878']")).click();
+//        WebElement proyectArray = driver.findElement(By.id("//select[@name='time_entry[project_id]']"));
+        driver.findElement(By.xpath("//option[@value='"+timeEntryProjecId+ "']")).click();
 
         //Introduce petiton number
         WebElement petitionNumber = driver.findElement(By.id("time_entry_issue_id"));
@@ -95,17 +95,17 @@ public class LogarDia {
         activityArray.click();
         activityArray.findElement(By.xpath("//option[@value='20']")).click();
 
-//        //Click submit
-//        WebElement submitButton = driver.findElement(By.xpath("//input[@value='Crear']"));
-//        submitButton.click();
-//
-//        //Verifications
-//        String expectedSuccessMessage ="Creación correcta.";
-//        WebElement successMessage = driver.findElement(By.id("flash_notice"));
-//        String actualSuccessMessage = successMessage.getText();
-//        Assert.assertEquals(actualSuccessMessage,expectedSuccessMessage, "Successful action message was not found. " );
-//
-//
+        //Click submit
+        WebElement submitButton = driver.findElement(By.xpath("//input[@value='Crear']"));
+        submitButton.click();
+
+        //Verifications
+        String expectedSuccessMessage ="Creación correcta.";
+        WebElement successMessage = driver.findElement(By.id("flash_notice"));
+        String actualSuccessMessage = successMessage.getText();
+        Assert.assertEquals(actualSuccessMessage,expectedSuccessMessage, "Successful action message was not found. " );
+
+
 
     }
 
@@ -254,7 +254,8 @@ public class LogarDia {
 
     @AfterMethod(alwaysRun = true)
     private void closeDriver() {
-        //        driver.quit();
+
+        driver.quit();
     }
 }
 

@@ -117,13 +117,82 @@ public class ExceptionTest {
 
     }
 
+    @Test(priority = 4)
+    public void staleElementTest() {
+        String URL = "http://the-internet.herokuapp.com/dynamic_controls";
+
+        //Open URL
+        driver.get(URL);
+
+        //Find checkbox
+        WebElement checkbox = driver.findElement(By.id("checkbox"));
+
+        //Find button
+        WebElement removeButton = driver.findElement(By.xpath("//button[contains(text(), 'Remove')]"));
+
+        //Create new wait element
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        //Click on remove button
+        removeButton.click();
+
+
+        //Verify that checkbox is not displayed
+//        Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOf(checkbox)), "Checkbox is visible, but it" +
+//                "should not be. ");
+
+        //Another way to verify that the element is not displayed
+        Assert.assertTrue(wait.until(ExpectedConditions.stalenessOf(checkbox)), "Checkbox is visible, but it" +
+                "should not be. ");
+
+        //Click add button
+        WebElement addButton = driver.findElement(By.xpath("//button[contains(text(), 'Add')]"));
+        addButton.click();
+
+        //Verify that the checkbox is back
+        checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkbox")));
+        Assert.assertTrue(checkbox.isDisplayed(), "Checkbox should be displayed, but it is not. ");
+
+
+    }
+
+    @Test(priority = 5)
+    public void disabledElementTest() {
+        String URL = "http://the-internet.herokuapp.com/dynamic_controls";
+
+        //Access URL
+        driver.get(URL);
+
+        //Locate enable button
+        WebElement enableButton = driver.findElement(By.xpath("//button[contains(text(), 'Enable')]"));
+        WebElement textField = driver.findElement(By.xpath("//input[@type='text']"));
+
+
+        //Click enable button
+        enableButton.click();
+
+        //Verify that textfield is enabled
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(textField));
+
+        //Write something in the textField
+        textField.sendKeys("Hello, I am Puli. ");
+        Assert.assertEquals(textField.getAttribute("value"), "Hello, I am Puli. ");
+
+    }
+
     @AfterMethod(alwaysRun = true)
     private void closeDriver() {
         driver.quit();
     }
 
+    @BeforeTest(alwaysRun = true)
+    private void printMessageBeforeTest() {
+        System.out.println("----------TEST STARTED----------");
+    }
+
     @AfterTest(alwaysRun = true)
-    private void printMessage() {
+    private void printMessageAfterTest() {
         System.out.println("----------TEST FINISHED----------");
     }
 

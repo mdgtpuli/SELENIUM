@@ -2,49 +2,53 @@
 
 <suite name="AllTests" verbose="1">
 
-    <test name="LogarLunes">
+    <test name="LogarLunes2">
         <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
-        <parameter name="petition" value="163994"/>
-        <parameter name="hours" value="8.5"/>
+        <parameter name="timeEntryProjecId" value="1044"/>
+        <parameter name="petition" value="166378"/>
+        <parameter name="hours" value="4.0"/>
         <parameter name="fechaSt" value="0"/>
         <classes>
             <class name="es.fujiemergya.redmine.LogarDia"/>
         </classes>
     </test>
 
-    <test name="LogarMartes">
+    <test name="LogarMartes2">
         <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
-        <parameter name="petition" value="163994"/>
-        <parameter name="hours" value="8.5"/>
+        <parameter name="timeEntryProjecId" value="1044"/>
+        <parameter name="petition" value="166378"/>
+        <parameter name="hours" value="4.0"/>
         <parameter name="fechaSt" value="1"/>
         <classes>
             <class name="es.fujiemergya.redmine.LogarDia"/>
         </classes>
     </test>
 
-    <test name="LogarMiercoles">
+    <test name="LogarMiércoles2">
         <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
-        <parameter name="petition" value="163994"/>
-        <parameter name="hours" value="8.5"/>
-        <parameter name="fechaSt" value="2"/>
+        <parameter name="timeEntryProjecId" value="1044"/>
+        <parameter name="petition" value="166378"/>
+        <parameter name="hours" value="4.0"/>
+        <parameter name="fechaSt" value="1"/>
         <classes>
             <class name="es.fujiemergya.redmine.LogarDia"/>
         </classes>
     </test>
 
-    <test name="LogarJueves">
+    <test name="LogarJueves2">
         <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
-        <parameter name="petition" value="163994"/>
-        <parameter name="hours" value="8.5"/>
-        <parameter name="fechaSt" value="3"/>
+        <parameter name="timeEntryProjecId" value="1044"/>
+        <parameter name="petition" value="166378"/>
+        <parameter name="hours" value="4.0"/>
+        <parameter name="fechaSt" value="1"/>
         <classes>
             <class name="es.fujiemergya.redmine.LogarDia"/>
         </classes>
@@ -54,7 +58,8 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="usernameSt" value="mdolores.garcia"/>
         <parameter name="passwordSt" value="26086420"/>
-        <parameter name="petition" value="163994"/>
+        <parameter name="timeEntryProjecId" value="1044"/>
+        <parameter name="petition" value="166378"/>
         <parameter name="hours" value="6.5"/>
         <parameter name="fechaSt" value="4"/>
         <classes>

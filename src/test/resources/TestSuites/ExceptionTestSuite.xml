@@ -4,7 +4,11 @@
 
     <test name="ExceptionTest">
         <classes>
-            <class name="es.fujiemergya.redmine.ExceptionTest"/>
+            <class name="es.fujiemergya.redmine.ExceptionTest">
+                <methods>
+                    <include name="disabledElementTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
